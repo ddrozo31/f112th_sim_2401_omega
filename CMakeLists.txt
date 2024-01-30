@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(f1_12th_simulator_gYY)
+project(f112th_sim_2401_omega)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
