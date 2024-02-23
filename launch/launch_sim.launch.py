@@ -48,6 +48,16 @@ def generate_launch_description():
         executable='spawner', 
         arguments=['joint_broad'])
     
+    ekf_param_file = os.path.join(get_package_share_directory(package_name),'config','ekf.yaml')
+    
+    robot_localization_node = Node(
+       package='robot_localization',
+       executable='ekf_node',
+       name='ekf_filter_node',
+       output='screen',
+       parameters=[ekf_param_file,{'use_sim_time': True}]
+)
+    
     joystick = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','joystick.launch.py'
@@ -63,6 +73,8 @@ def generate_launch_description():
                     remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
     )
 
+
+
     # Launch them all!
     return LaunchDescription([
         rsp,
@@ -71,5 +83,6 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
         diff_drive_spawner,
-        joint_broad_spawner
+        joint_broad_spawner,
+        robot_localization_node
     ])
