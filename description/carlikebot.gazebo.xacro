@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+Copied and modified from ROS1 example -
+https://github.com/ros-simulation/gazebo_ros_demos/blob/kinetic-devel/rrbot_description/urdf/rrbot.gazebo
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="carlikebot_gazebo" params="prefix">
+
+    <!-- Link1 -->
+    <gazebo reference="${prefix}base_link">
+      <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <!-- Link2 -->
+    <gazebo reference="${prefix}link1">
+      <mu1>0.2</mu1>
+      <mu2>0.2</mu2>
+      <material>Gazebo/Yellow</material>
+    </gazebo>
+
+    <!-- Link3 -->
+    <gazebo reference="${prefix}link2">
+      <mu1>0.2</mu1>
+      <mu2>0.2</mu2>
+      <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="${prefix}link3">
+      <mu1>0.2</mu1>
+      <mu2>0.2</mu2>
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>
