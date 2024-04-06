@@ -14,10 +14,13 @@ def generate_launch_description():
 
     # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time')
+    #robot_name = 'robot.urdf.xacro'
+    robot_name = 'carlikebot.urdf.xacro'
+
 
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('f112th_sim_2401_omega'))
-    xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
+    xacro_file = os.path.join(pkg_path,'description',robot_name)
     robot_description_config = xacro.process_file(xacro_file)
     
     # Create a robot_state_publisher node
